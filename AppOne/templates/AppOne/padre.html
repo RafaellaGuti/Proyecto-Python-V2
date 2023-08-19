@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>One Space</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static '/AppOne/assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static '/AppOne/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static '/AppOne/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static '/AppOne/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static '/AppOne/assets/css/style.css' %}" rel="stylesheet">
+
+    <style>
+      .row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+      }
+  
+      .col-lg-4 {
+          flex-basis: calc(33.333% - 20px);
+          margin-bottom: 20px;
+      }
+  
+      .image-container {
+          max-width: 100%;
+          text-align: center;
+      }
+  
+      .image-container img {
+          max-width: 100%;
+          max-height: 200px; /* Puedes ajustar el tamaño máximo vertical */
+          display: inline-block;
+          vertical-align: middle;
+      }
+  </style>
+
+
+  <!-- =======================================================
+  * Template Name: Gp
+  * Updated: Jul 27 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">OS<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'Inicio' %}">Home</a></li>
+          <li class="dropdown"><a href="#productos"><span>Productos</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a class="nav-link scrollto" href="{% url 'categoriasp_list' %}">Categorias</a></li>
+              <li><a href="{% url 'List' %}">Ver Productos</a></li>
+              <li><a href="{% url 'Productos' %}">Ofrecer Productos</a></li>
+              <li><a href="{% url 'Busquedacategoria' %}">Buscar Productos</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#servicios"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a class="nav-link scrollto" href="{% url 'categoriass_list' %}">Categorias</a></li>
+              <li><a href="{% url 'Slist' %}">Ver Servicios</a></li>
+              <li><a href="{% url 'Servicios' %}">Ofrecer Servicios</a></li>
+              <li><a href="{% url 'Busquedacategoria' %}">Buscar Servicios</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="{% url 'Login' %}"><span>Ingresá</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a class="nav-link scrollto" href="{% url 'Login' %}">Iniciá sesión</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'Logout' %}">Cerrá sesión</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{% url 'Busquedacategoria' %}">Buscar</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'About' %}">About</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+        {% if user.is_authenticated %}
+        <div class="nav-link scrollto">
+        <h2> Hola {{ user.username }}</h2>
+        </div>
+        {% endif %}
+        
+
+      <a href="{% url 'Register' %}" class="get-started-btn scrollto">¡Registrate!</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-6 col-lg-8">
+          <h1>Las mejores soluciones digitales con OS<span>.</span></h1>
+          <h2>Un espacio, miles de soluciones</h2>
+        </div>
+      </div>
+
+      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-store-line"></i>
+            <h3><a href="{% url 'Paginacons' %}">Compra/Venta de Productos</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line"></i>
+            <h3><a href="{% url 'Paginacons' %}">Trackeá tus ventas</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line"></i>
+            <h3><a href="{% url 'Paginacons' %}">Organizá tu espacio</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line"></i>
+            <h3><a href="{% url 'Paginacons' %}">Ofrecé tus servicios</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line"></i>
+            <h3><a href="{% url 'Paginacons' %}">Monetizá con nosotros</a></h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+    
+    
+    {% block contenido1 %}
+
+    {% endblock %}
+
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="servicios" class="servicios">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Servicios</h2>
+          <p>Encontrá los servicios que necesitas</p>
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Diseño Grafico</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Consulting</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Management</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Big Data</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-slideshow"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Digital Marketing</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-arch"></i></div>
+              <h4><a href="{% url 'categoriass_list' %}">Asesoría Legal</a></h4>
+              {% if not user.is_authenticated %}
+              <p>Iniciá sesion para mas información</p>
+              {% endif %}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+    {% if not user.is_authenticated %}
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="text-center">
+          <h3>¿Aun no te has registrado?</h3>
+          <p> Registrate acá y descubre increibles beneficios</p>
+          <a class="cta-btn" href="{% url 'Register' %}">¡Registrate!</a>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+    {% endif %}
+    <!-- ======= Portfolio Section ======= -->
+    <section id="productos" class="productos">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Productos</h2>
+          <p>Chequeá nuestros productos</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-1.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/20">Face Mist</a></h4>
+                <p>Skincare</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-1.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="{% static '/AppOne/portfolio-details.html'%}" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-2.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/21">Juego de tazas</a></h4>
+                <p>Cocina</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-2.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-3.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/22">Plantas Indoor</a></h4>
+                <p>Deco</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-3.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-4.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/17">Ray - bans Sunglasses</a></h4>
+                <p>Accesorios</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-4.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-5.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/24">Lampara Mediana</a></h4>
+                <p>Deco</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-5.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-6.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/23">Taburete Cocina</a></h4>
+                <p>Deco</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-6.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-7.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/26">Lente Camara Fotografica C200</a></h4>
+                <p>Tecnologia</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-7.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-8.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/19">Whiskey Glass</a></h4>
+                <p>Cocina</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-8.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="{% static '/AppOne/assets/img/portfolio/portfolio-9.jpg'%}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><a href="/25">Reloj cuero</a></h4>
+                <p>Accesorios</p>
+                <div class="portfolio-links">
+                  <a href="{% static '/AppOne/assets/img/portfolio/portfolio-9.jpg'%}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Gp<span>.</span></h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ 
+  <!-- Vendor JS Files --> {}
+  <script src="{% static '/AppOne/assets/vendor/purecounter/purecounter_vanilla.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{% static '/AppOne/assets/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static '/AppOne/assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

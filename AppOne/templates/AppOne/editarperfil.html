@@ -1,0 +1,30 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Editar</h2>
+            <p>Modifica los datos de tu perfil</p>
+        </div>
+    </div>
+</section>
+
+
+<br>
+<form action="" method="POST">{% csrf_token %}
+    
+    <table>
+
+        {{ form.as_table }}
+
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form>  
+
+{% endblock %}

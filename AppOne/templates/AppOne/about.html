@@ -1,0 +1,43 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+    <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+
+        <img src="{% static 'AppOne/assets/img/about.jpg' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+        <h3>One Space, One Store</h3>
+        <p class="fst-italic">
+            La plataforma online donde encontraras lo que necesitas para potenciar tu productividad y lifestyle soñado.
+        </p>
+        <ul>
+            <li><i class="ri-check-double-line"></i> Transparencia.</li>
+            <li><i class="ri-check-double-line"></i> Conciencia.</li>
+            <li><i class="ri-check-double-line"></i> Potencial.</li>
+        </ul>
+        {% if user.is_authenticated %}
+        <p>
+            Hola! Soy {{ user.username }}! Este mensaje aparece unicamente si he iniciado sesion.
+        </p>
+        <img src="{{url}}" class="img-fluid" alt="">
+        <p>
+            <a href=" {% url 'Editarperfil' %} "> Editar perfil </a>
+        </p>
+
+        {% endif %}
+    </div>
+</div>
+</div>
+</section><!-- End About Section -->
+
+
+{% endblock %}

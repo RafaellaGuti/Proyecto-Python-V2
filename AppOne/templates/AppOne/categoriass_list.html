@@ -1,0 +1,22 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+        <h2>Categorias</h2>
+        <p>Categorias de servicios</p>
+    </div>
+    </div>
+        </div>
+    </div>
+</section>
+        <ul>
+            {% for categoria in categorias %}
+            <li><a href="{% url 'servicios_por_categoria' categoria=categoria %}">{{ categoria }}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock %}

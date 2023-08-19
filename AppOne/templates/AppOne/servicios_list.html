@@ -1,0 +1,32 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+        <h2>Servicios</h2>
+        <p>¡Mirá todos nuestros servicios disponibles!</p>
+    </div>
+    </div>
+        </div>
+    </div>
+</section>
+<ul>
+    {% for servicio in object_list %}
+    <li>
+        <p> NOMBRE: {{ servicio.nombre }} </p>
+        <p>
+                <a href="{% url 'Sdetail' servicio.pk %}">Ver</a>
+                <a href="{% url 'Sedit' servicio.pk %}">Editar</a>
+                <a href="{% url 'Sdelete' servicio.pk %}">Eliminar</a>
+        </p>
+    </li>
+    {% endfor %}
+    <p>
+        <a href=" {% url 'Inicio' %} "> Salir de la lista </a>
+    </p>
+</ul>
+{% endblock %}

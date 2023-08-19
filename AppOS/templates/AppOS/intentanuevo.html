@@ -1,0 +1,29 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+        <h2>Login</h2>
+        <p>Intenta nuevamente</p>
+    </div>
+    </div>
+        </div>
+    </div>
+</section>
+
+    <form action=" " method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+            <button type="submit">Iniciar sesion</button>
+    </form>
+    <br>
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
+{% endblock %}

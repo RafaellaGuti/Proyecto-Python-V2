@@ -1,0 +1,31 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+
+<br>
+
+{% if user.is_authenticated %}
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+        <h2>Logged in</h2>
+        <p>Bienvenido, {{ user.username }}</p>
+        <a href="{% url 'Logout' %}">Cerrar sesión</a>
+        </div>
+    </div>
+{% else %}
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+        <h2>Logged out</h2>
+        <p>¡Ingresá a tu cuenta para acceder a mas contenido!</p>
+    <a href="{% url 'Login' %}">Iniciar sesión</a>
+    </div>
+</div>
+{% endif %}
+
+{% if mensaje %}
+    <p>{{ mensaje }}</p>
+{% endif %}
+
+{% endblock %}

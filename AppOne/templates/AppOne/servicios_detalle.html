@@ -1,0 +1,23 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Servicios</h2>
+        <p>Detalles del servicio</p>
+      </div>
+    </div>
+        </div>
+    </div>
+</section>
+    <p>Nombre del producto: <i> {{ servicios.nombre }} </i></p>
+    <p>Categoria: <i> {{ servicios.categoria }} </i></p>
+    <p>
+        <a href=" {% url 'Slist' %} "> Regresar </a>
+    </p>
+    
+{% endblock %}

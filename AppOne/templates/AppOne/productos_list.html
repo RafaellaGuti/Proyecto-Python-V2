@@ -1,0 +1,38 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+        <h2>Productos</h2>
+        <p>¡Mirá todos nuestros productos disponibles!</p>
+    </div>
+    </div>
+</section>
+
+<div class="row">
+    {% for producto in productos %}
+    <div class="col-lg-4 col-md-6">
+        <div class="portfolio-wrap">
+            <div class="image-container">
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text">Categoria del producto: {{ producto.categoria }}</p>
+                    <a href="{% url 'Detail' pk=producto.id %}" class="cta-btn">Ver</a>
+                    <a href="{% url 'Edit' pk=producto.id %}" class="cta-btn">Editar</a>
+                    <a href="{% url 'Delete' pk=producto.id %}" class="cta-btn">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<p>
+    <a href="{% url 'Inicio' %}">Salir de la lista</a>
+</p>
+{% endblock %}

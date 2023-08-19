@@ -1,0 +1,27 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Productos</h2>
+        <p>Editá el producto</p>
+      </div>
+    </div>
+        </div>
+    </div>
+</section>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Editar"/>
+
+</form>
+<p>
+    <a href=" {% url 'List' %} "> Regresar </a>
+</p>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+<style>
+    .product-details {
+        overflow: hidden;
+    }
+
+    .image-container {
+        width: 33.333%;
+        float: left;
+    }
+
+    .image-container img {
+        width: 100%;
+        display: block;
+    }
+
+    .details-container {
+        width: 66.666%;
+        float: right;
+    }
+</style>
+
+<section id="login" class="login">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Productos</h2>
+            <p>Detalles del producto</p>
+        </div>
+    </div>
+</section>
+
+<div class="product-details">
+    <div class="image-container">
+        <img src="{{ productos.imagen.url }}" alt="{{ productos.nombre }}">
+    </div>
+    <div class="details-container">
+        <p class="fst-italic">Nombre del producto: <i>{{ productos.nombre }}</i></p>
+        <p class="fst-italic">Categoria: <i>{{ productos.categoria }}</i></p>
+    </div>
+</div>
+
+<p class="fst-italic">
+    <a href="{% url 'List' %}">Regresar</a>
+</p>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'AppOne/padre.html' %}
+
+{% load static %}
+
+{% block contenido1 %}
+
+<section id="register" class="register">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Registro</h2>
+        <p>¡Registrate acá!</p>
+      </div>
+    </div>
+
+</section>
+
+    <form method="post" action=" ">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+            <button type="submit">Registrarse</button>
+    </form>
+{% endblock %}
