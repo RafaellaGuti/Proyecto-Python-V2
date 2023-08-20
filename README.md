@@ -1,5 +1,7 @@
 # Entrega-Final-Python-54955-Coderhouse
 Ultima entrega del trabajo final del curso Python 54955 en CoderHouse
+
+
 Carpetas 'AppOne'  dentro de '\Entrega Final Python 54955\trabajofinalpython\AppOne\static' y,
 carpeta 'tercerapreentrega' dentro de '\Entrega Final Python 54955\trabajofinalpython' fueron comprimidas para una subida mas prolija a la plataforma.
 
